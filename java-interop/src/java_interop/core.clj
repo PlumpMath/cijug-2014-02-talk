@@ -1,6 +1,16 @@
 (ns java-interop.core
   (:import com.cwfreeman.StringEngine
-           com.cwfreeman.StringWorker))
+           com.cwfreeman.StringWorker)
+  (:require [clojure.math.numeric-tower :refer [sqrt expt]]))
+
+(defprotocol MetricSpacePoint
+  (distance [this other]))
+(defrecord TwoDCartesian [x y]
+  MetricSpacePoint
+  (distance [this other] (sqrt
+                          (+
+                           (expt (- x (.x other)) 2)
+                           (expt (- y (.y other)) 2)))))
 
 (defrecord IdentityStringWorker []
   com.cwfreeman.StringWorker
