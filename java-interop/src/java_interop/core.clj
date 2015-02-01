@@ -1,4 +1,4 @@
 (ns java-interop.core)
 
 (defn -main []
-  (println (. "Hello, World!" toLowerCase)))
+  (println (.toLowerCase "Hello, World!")))
