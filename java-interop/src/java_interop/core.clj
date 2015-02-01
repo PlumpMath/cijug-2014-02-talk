@@ -2,11 +2,12 @@
 
 (defn make-hello []
   (let [sb (java.lang.StringBuilder.)]
-    (.append sb "Hello")
-    (.append sb ",")
-    (.append sb " ")
-    (.append sb "World")
-    (.append sb "!")
+    (doto sb
+      (.append "Hello")
+      (.append ",")
+      (.append " ")
+      (.append "World")
+      (.append "!"))
     sb))
 
 (defn -main []
