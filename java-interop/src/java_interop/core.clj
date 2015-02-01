@@ -2,14 +2,17 @@
   (:import com.cwfreeman.StringEngine
            com.cwfreeman.StringWorker))
 
-(deftype IdentityStringWorker []
-  com.cwfreeman.StringWorker
-  (map [this x] x)
-  (reduce [this xs] (apply str xs)))
+(gen-class
+ :name java-interop.worker.IdentityStringWorker
+ :implements [com.cwfreeman.StringWorker]
+ :prefix "worker-")
+
+(defn worker-map [this x] x)
+(defn worker-reduce [this xs] (apply str xs))
 
 (defn make-hello2 []
   (let [engine (com.cwfreeman.StringEngine. (into-array String ["Hello" "," " " "World" "!"]))]
-    (.work engine IdentityStringWorker)))
+    (.work engine java-interop.worker.IdentityStringWorker)))
 
 (defn make-hello []
   (doto (java.lang.StringBuilder.)
