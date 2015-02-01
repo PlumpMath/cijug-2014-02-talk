@@ -4,4 +4,4 @@
 
 (deftest output
   (testing "is always Hello, World!"
-    (is (= "Hello, World!\n" (-main)))))
+    (is (= "Hello, World!\n" (with-out-str (-main))))))
