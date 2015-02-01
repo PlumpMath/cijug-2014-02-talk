@@ -9,4 +9,4 @@
       (.append "!")))
 
 (defn -main []
-  (println (.. (make-hello) toString toLowerCase)))
+  (println (-> (make-hello) .toString .toLowerCase)))
