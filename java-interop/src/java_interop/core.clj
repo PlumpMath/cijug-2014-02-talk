@@ -2,15 +2,9 @@
   (:import com.cwfreeman.StringEngine
            com.cwfreeman.StringWorker))
 
-(defn make-worker []
-  (reify
-    com.cwfreeman.StringWorker
-    (map [this x] x)
-    (reduce [this xs] (apply str xs))))
-
 (defn make-hello2 []
   (let [engine (com.cwfreeman.StringEngine. (into-array String ["Hello" "," " " "World" "!"]))]
-    (.work engine (make-worker))))
+    (.work engine ???)))
 
 (defn make-hello []
   (doto (java.lang.StringBuilder.)
