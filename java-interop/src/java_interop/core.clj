@@ -3,7 +3,7 @@
            com.cwfreeman.StringWorker))
 
 (gen-class
- :name java-interop.worker.IdentityStringWorker
+ :name java_interop.worker.IdentityStringWorker
  :implements [com.cwfreeman.StringWorker]
  :prefix "worker-")
 
@@ -12,7 +12,7 @@
 
 (defn make-hello2 []
   (let [engine (com.cwfreeman.StringEngine. (into-array String ["Hello" "," " " "World" "!"]))]
-    (.work engine java-interop.worker.IdentityStringWorker)))
+    (.work engine java_interop.worker.IdentityStringWorker)))
 
 (defn make-hello []
   (doto (java.lang.StringBuilder.)

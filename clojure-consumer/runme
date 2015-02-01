@@ -1,0 +1,1 @@
+java -cp target/classes:/Users/cwfreeman/build/clojurescript/lib/clojure.jar:/Users/cwfreeman/.m2/repository/com/cwfreeman/hadoop-like/1.0/hadoop-like-1.0.jar:/Users/cwfreeman/.m2/repository/java-interop/java-interop/0.1.0/java-interop-0.1.0.jar com/cwfreeman/App

@@ -1,11 +1,14 @@
 package com.cwfreeman;
 
+import java_interop.worker.IdentityStringWorker;
+import com.cwfreeman.StringWorker;
+import com.cwfreeman.StringEngine;
+
 public class App 
 {
     public static void main( String[] args )
     {
         StringEngine e = new StringEngine(new String[]{"Hello", ", ", " ", "World", "!"});
-        // .. Now I just want a StringWorker to parse it all...
-        System.out.println( "I really want to use the Hadoop-Like library via Clojure..." );
+        System.out.println( "Output: " + e.work(new IdentityStringWorker()));
     }
 }
