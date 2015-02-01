@@ -1,14 +1,12 @@
 (ns java-interop.core)
 
 (defn make-hello []
-  (let [sb (java.lang.StringBuilder.)]
-    (doto sb
+  (doto (java.lang.StringBuilder.)
       (.append "Hello")
       (.append ",")
       (.append " ")
       (.append "World")
-      (.append "!"))
-    sb))
+      (.append "!")))
 
 (defn -main []
   (println (.toLowerCase (.toString (make-hello)))))
