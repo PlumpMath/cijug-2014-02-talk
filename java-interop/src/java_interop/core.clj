@@ -1,5 +1,6 @@
 (ns java-interop.core
-  (:import com.cwfreeman.StringEngine))
+  (:import com.cwfreeman.StringEngine
+           com.cwfreeman.StringWorker))
 
 (defn make-hello []
   (doto (java.lang.StringBuilder.)
