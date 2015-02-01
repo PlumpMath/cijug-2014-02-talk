@@ -12,6 +12,6 @@
 
 (deftest metric-spaces
   (testing "cartesian distances are familiar"
-    (let [a (->TwoDCartesian 3 4)
-          b (->TwoDCartesian 0 0)]
+    (let [a (->TwoDCartesian [3 4])
+          b (->TwoDCartesian [0 0])]
       (is (= 5 (distance a b))))))

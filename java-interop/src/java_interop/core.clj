@@ -5,12 +5,11 @@
 
 (defprotocol MetricSpacePoint
   (distance [this other]))
-(defrecord TwoDCartesian [x y]
+(defrecord TwoDCartesian [coords]
   MetricSpacePoint
   (distance [this other] (sqrt
-                          (+
-                           (expt (- x (:x other)) 2)
-                           (expt (- y (:y other)) 2)))))
+                          (apply +
+                                 (map #(expt (- %1 %2) 2) coords (:coords other))))))
 
 (defrecord IdentityStringWorker []
   com.cwfreeman.StringWorker
