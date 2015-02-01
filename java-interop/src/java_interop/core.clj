@@ -9,8 +9,8 @@
   MetricSpacePoint
   (distance [this other] (sqrt
                           (+
-                           (expt (- x (.x other)) 2)
-                           (expt (- y (.y other)) 2)))))
+                           (expt (- x (:x other)) 2)
+                           (expt (- y (:y other)) 2)))))
 
 (defrecord IdentityStringWorker []
   com.cwfreeman.StringWorker
