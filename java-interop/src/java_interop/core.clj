@@ -3,9 +3,10 @@
            com.cwfreeman.StringWorker))
 
 (defn make-worker []
-  (proxy [com.cwfreeman.StringWorker] []
-    (map [x] x)
-    (reduce [xs] (apply str xs))))
+  (reify
+    com.cwfreeman.StringWorker
+    (map [this x] x)
+    (reduce [this xs] (apply str xs))))
 
 (defn make-hello2 []
   (let [engine (com.cwfreeman.StringEngine. (into-array String ["Hello" "," " " "World" "!"]))]
