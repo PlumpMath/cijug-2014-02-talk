@@ -25,3 +25,7 @@
 
 (deftest simple-equality
   (is (= true true)))
+
+(deftest redefing-stuff-is-fun
+  (with-redefs [clojure.core/prn (fn [& xs] 5)]
+    (is (= 5 (prn "hello, world!")))))
