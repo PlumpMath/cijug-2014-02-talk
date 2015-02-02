@@ -10,3 +10,18 @@
   (testing "is always Hello, World!"
     (is (= "Hello, World!" (make-hello2)))))
 
+(defn my-test-fixture [f]
+  (prn "Before the test")
+  (f)
+  (prn "After the test"))
+
+(defn my-suite-fixture [f]
+  (prn "Before the suite")
+  (f)
+  (prn "After the suite"))
+
+(use-fixtures :each my-test-fixture)
+(use-fixtures :once my-suite-fixture)
+
+(deftest simple-equality
+  (is (= true true)))
