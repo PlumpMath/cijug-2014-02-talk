@@ -29,3 +29,9 @@
 (deftest redefing-stuff-is-fun
   (with-redefs [clojure.core/prn (fn [& xs] 5)]
     (is (= 5 (prn "hello, world!")))))
+
+(deftest looking-for-exceptions
+  (is (thrown? java.lang.RuntimeException
+               (throw (java.lang.RuntimeException. "Hi"))))
+  (is (thrown-with-msg? java.lang.RuntimeException #"H.*"
+                        (throw (java.lang.RuntimeException. "Hi")))))
